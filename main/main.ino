@@ -3,19 +3,13 @@
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
 #include "WiFi.h"
- 
-#include "DHT.h"
-#define DHTPIN 14     // Digital pin connected to the DHT sensor
-#define DHTTYPE DHT11   // DHT 11
- 
+  
 #define AWS_IOT_PUBLISH_TOPIC   "esp32/pub"
 #define AWS_IOT_SUBSCRIBE_TOPIC "esp32/sub"
  
 float h ;
 float t;
- 
-DHT dht(DHTPIN, DHTTYPE);
- 
+  
 WiFiClientSecure net = WiFiClientSecure();
 PubSubClient client(net);
  
@@ -89,20 +83,12 @@ void setup()
 {
   Serial.begin(115200);
   connectAWS();
-  dht.begin();
 }
  
 void loop()
 {
   h = 100;
   t = 200;
- 
- 
-  if (isnan(h) || isnan(t) )  // Check if any reads failed and exit early (to try again).
-  {
-    Serial.println(F("Failed to read from DHT sensor!"));
-    return;
-  }
  
   Serial.print(F("Humidity: "));
   Serial.print(h);
