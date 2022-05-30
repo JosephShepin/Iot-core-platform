@@ -7,7 +7,7 @@
 #define AWS_IOT_PUBLISH_TOPIC   "esp32/pub"
 #define AWS_IOT_SUBSCRIBE_TOPIC "esp32/sub"
  
-float h ;
+float h;
 float t;
   
 WiFiClientSecure net = WiFiClientSecure();
@@ -63,7 +63,7 @@ void publishMessage()
   doc["humidity"] = h;
   doc["temperature"] = t;
   char jsonBuffer[512];
-  serializeJson(doc, jsonBuffer); // print to client
+  serializeJson(doc, jsonBuffer); 
  
   client.publish(AWS_IOT_PUBLISH_TOPIC, jsonBuffer);
 }
@@ -89,12 +89,6 @@ void loop()
 {
   h = 100;
   t = 200;
- 
-  Serial.print(F("Humidity: "));
-  Serial.print(h);
-  Serial.print(F("%  Temperature: "));
-  Serial.print(t);
-  Serial.println(F("°C "));
  
   publishMessage();
   client.loop();
