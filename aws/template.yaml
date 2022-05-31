@@ -16,7 +16,6 @@ Resources:
       Runtime: nodejs16.x
       Architectures:
         - x86_64
-      Events:
        
   PermissionForIoTEventsToInvokeLambda:
     Type: AWS::Lambda::Permission
