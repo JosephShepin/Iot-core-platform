@@ -18,6 +18,12 @@ Resources:
         - x86_64
       Events:
        
+  PermissionForIoTEventsToInvokeLambda:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !GetAtt RespondFunction.Arn
+      Action: "lambda:InvokeFunction"
+      Principal: "iot.amazonaws.com"
             
   LambdaCallFromPub:
     Type: AWS::IoT::TopicRule
@@ -29,3 +35,4 @@ Resources:
         Actions:
           - Lambda: 
               FunctionArn: !GetAtt RespondFunction.Arn
+

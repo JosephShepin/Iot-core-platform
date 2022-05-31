@@ -1,5 +1,6 @@
 let response;
 
 exports.lambdaHandler = async (event, context) => {
-    return {}
+    console.log(event)
+    return event;
 };
