@@ -3,7 +3,7 @@ version = 0.1
 [default.deploy]
 [default.deploy.parameters]
 stack_name = "esp32-iot-stack"
-s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-yj6emljr7j3a"
+s3_bucket = ""
 s3_prefix = "esp32-iot-stack"
 region = "us-east-1"
 capabilities = "CAPABILITY_IAM"
